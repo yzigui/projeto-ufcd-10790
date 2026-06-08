@@ -1,0 +1,11 @@
+[
+    {
+        "nome": "Projeto Teste",
+        "categoria": "Vendas",
+        "descricao": "Teste da DAL",
+        "ferramentas": "Python",
+        "data_inicio": "08/06/2026",
+        "estado": "Em Desenvolvimento",
+        "data_conclusao": ""
+    }
+]
