@@ -64,3 +64,14 @@ class ProjetoBLL:
     
     def listar_projetos(self):
         return self.dal.carregar_projetos()
+    
+    def pesquisar_projeto(self, termo):
+        projetos = self.dal.carregar_projetos()
+
+        resultados = []
+
+        for projeto in projetos:
+            if termo.lower() in projeto["nome"].lower():
+                resultados.append(projeto)
+
+        return resultados

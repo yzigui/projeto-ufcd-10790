@@ -26,6 +26,9 @@ class Menu:
             
             elif opcao == "2":
                 self.listar_projetos()
+                
+            elif opcao == "3":
+                 self.pesquisar_projeto()
 
             else:
                 print("Funcionalidade ainda não implementada.")
@@ -81,6 +84,27 @@ class Menu:
         print("\n===== LISTA DE PROJETOS =====")
 
         for i, projeto in enumerate(projetos, start=1):
+            print(f"\nProjeto {i}")
+            print(f"Nome: {projeto['nome']}")
+            print(f"Categoria: {projeto['categoria']}")
+            print(f"Descrição: {projeto['descricao']}")
+            print(f"Ferramentas: {projeto['ferramentas']}")
+            print(f"Data de início: {projeto['data_inicio']}")
+            print(f"Estado: {projeto['estado']}")
+            print(f"Data de conclusão: {projeto['data_conclusao']}")
+            
+    def pesquisar_projeto(self):
+        termo = input("Digite o nome ou parte do nome do projeto: ")
+
+        resultados = self.bll.pesquisar_projeto(termo)
+
+        if not resultados:
+            print("\nNenhum projeto encontrado.")
+            return
+
+        print("\n===== RESULTADOS DA PESQUISA =====")
+
+        for i, projeto in enumerate(resultados, start=1):
             print(f"\nProjeto {i}")
             print(f"Nome: {projeto['nome']}")
             print(f"Categoria: {projeto['categoria']}")
