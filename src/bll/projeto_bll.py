@@ -61,3 +61,6 @@ class ProjetoBLL:
         self.dal.guardar_projetos(projetos)
 
         return projeto
+    
+    def listar_projetos(self):
+        return self.dal.carregar_projetos()

@@ -23,6 +23,9 @@ class Menu:
 
             elif opcao == "1":
                 self.adicionar_projeto()
+            
+            elif opcao == "2":
+                self.listar_projetos()
 
             else:
                 print("Funcionalidade ainda não implementada.")
@@ -67,3 +70,22 @@ class Menu:
 
         except IndexError:
             print("\nErro: categoria inválida.")
+            
+    def listar_projetos(self):
+        projetos = self.bll.listar_projetos()
+
+        if not projetos:
+            print("\nNenhum projeto registado.")
+            return
+
+        print("\n===== LISTA DE PROJETOS =====")
+
+        for i, projeto in enumerate(projetos, start=1):
+            print(f"\nProjeto {i}")
+            print(f"Nome: {projeto['nome']}")
+            print(f"Categoria: {projeto['categoria']}")
+            print(f"Descrição: {projeto['descricao']}")
+            print(f"Ferramentas: {projeto['ferramentas']}")
+            print(f"Data de início: {projeto['data_inicio']}")
+            print(f"Estado: {projeto['estado']}")
+            print(f"Data de conclusão: {projeto['data_conclusao']}")
