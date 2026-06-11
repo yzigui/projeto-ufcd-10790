@@ -50,10 +50,12 @@ Aplicação de consola em Python com armazenamento de dados em ficheiro JSON.
 
 Lista as principais funcionalidades implementadas:
 
-- [ ] Funcionalidade 1 — Registar projeto
-- [ ] Funcionalidade 2 — ex: Login com autenticação
-- [ ] Funcionalidade 3 — ex: Listagem de produtos
-- [ ] Funcionalidade 4 — ex: ...
+- [x] Funcionalidade 1 — Adicionar projeto
+- [x] Funcionalidade 2 — Listar projetos
+- [x] Funcionalidade 3 — Pesquisar projeto
+- [ ] Funcionalidade 4 — Filtrar projetos
+- [ ] Funcionalidade 4 — Editar projeto
+- [ ] Funcionalidade 4 — Remover projeto
 
 > As checkboxes ficam marcadas (`[x]`) à medida que implementas cada funcionalidade.
 
