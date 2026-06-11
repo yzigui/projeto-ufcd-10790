@@ -1,20 +1,12 @@
 from dal.projeto_dal import ProjetoDAL
+from bll.projeto_bll import ProjetoBLL
+from ui.menu import Menu
+
 
 dal = ProjetoDAL("src/dados/projetos.json")
 
-projetos = dal.carregar_projetos()
-print("Projetos carregados:", projetos)
+bll = ProjetoBLL(dal)
 
-projetos.append({
-    "nome": "Projeto Teste",
-    "categoria": "Vendas",
-    "descricao": "Teste da DAL",
-    "ferramentas": "Python",
-    "data_inicio": "08/06/2026",
-    "estado": "Em Desenvolvimento",
-    "data_conclusao": ""
-})
+menu = Menu(bll)
 
-dal.guardar_projetos(projetos)
-
-print("Projeto guardado com sucesso!")
+menu.iniciar()

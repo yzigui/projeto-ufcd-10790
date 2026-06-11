@@ -50,7 +50,7 @@ Aplicação de consola em Python com armazenamento de dados em ficheiro JSON.
 
 Lista as principais funcionalidades implementadas:
 
-- [ ] Funcionalidade 1 — ex: Registo de utilizador
+- [ ] Funcionalidade 1 — Registar projeto
 - [ ] Funcionalidade 2 — ex: Login com autenticação
 - [ ] Funcionalidade 3 — ex: Listagem de produtos
 - [ ] Funcionalidade 4 — ex: ...
