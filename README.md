@@ -1,9 +1,8 @@
-# Nome do Projeto
+# Portfólio de Dados
 
 > Breve descrição do projeto numa ou duas frases. O que faz a aplicação? Para quem?
 
-**Exemplo:** *Sistema de gestão de uma biblioteca pessoal que permite registar livros, autores e empréstimos.*
-
+Aplicação em Python para registar e gerir projetos de análise de dados, permitindo armazenar informações sobre projetos, ferramentas utilizadas, datas e estado de conclusão.
 ---
 
 ## Informação do Projeto
@@ -13,8 +12,8 @@
 | **Curso**        | UFCD 10790 – Projeto de Programação  |
 | **Formando**     | [Yasmim Guimaraes]                |
 | **Formador**     | [Carlos Barata]                   |
-| **Instituição**  | [Nome da instituição / empresa]      |
-| **Data de início** | [dd/mm/aaaa]                       |
+| **Instituição**  | [IEFP]      |
+| **Data de início** | [03/06/2026]                       |
 | **Data de entrega** | [dd/mm/aaaa]                      |
 | **Versão**       | 1.0                                  |
 
@@ -36,11 +35,14 @@
 
 ## Descrição
 
-Explica aqui o projeto com um pouco mais de detalhe do que na frase de abertura.
+O Portfólio de Dados é uma aplicação desenvolvida em Python para registar e gerir projetos de análise de dados.
 
-- Qual o problema que resolve?
-- Quem são os utilizadores?
-- Qual a abordagem técnica (ex: aplicação de consola em Python com base de dados SQLite)?
+O sistema permite armazenar informações sobre cada projeto, incluindo nome, categoria, descrição, ferramentas utilizadas, datas e estado de conclusão.
+
+- Qual o problema que resolve? Permite organizar projetos de análise de dados num único local, facilitando o acompanhamento da evolução e a construção de um portfólio profissional.
+- Quem são os utilizadores? Profissionais da area que desejam organizar os seus projetos.
+- Qual a abordagem técnica? 
+Aplicação de consola em Python com armazenamento de dados em ficheiro JSON.
 
 ---
 
