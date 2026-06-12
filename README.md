@@ -53,9 +53,9 @@ Lista as principais funcionalidades implementadas:
 - [x] Funcionalidade 1 — Adicionar projeto
 - [x] Funcionalidade 2 — Listar projetos
 - [x] Funcionalidade 3 — Pesquisar projeto
-- [ ] Funcionalidade 4 — Filtrar projetos
-- [ ] Funcionalidade 4 — Editar projeto
-- [ ] Funcionalidade 4 — Remover projeto
+- [x] Funcionalidade 4 — Filtrar projetos
+- [x] Funcionalidade 5 — Editar projeto
+- [x] Funcionalidade 6 — Remover projeto
 
 > As checkboxes ficam marcadas (`[x]`) à medida que implementas cada funcionalidade.
 
@@ -99,18 +99,16 @@ projeto_ufcd10790/
 
 ---
 
+
 ## Requisitos Técnicos
 
-- Python 3.10 ou superior
-- Bibliotecas necessárias (lista aqui as que usas):
-  - `sqlite3` — incluído no Python (não precisa de instalação)
-  - *(adiciona outras se necessário, ex: `bcrypt`, `tabulate`)*
+* Python 3.10 ou superior
 
-Para instalar dependências externas (se houver):
+Bibliotecas utilizadas:
 
-```bash
-pip install -r requirements.txt
-```
+* `json` — incluída no Python
+
+Não são necessárias instalações adicionais.
 
 ---
 
@@ -119,8 +117,8 @@ pip install -r requirements.txt
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/[teu-utilizador]/[nome-do-repositorio].git
-cd [nome-do-repositorio]
+git clone https://github.com/yzigui/projeto-ufcd-10790.git
+cd projeto-ufcd-10790
 ```
 
 ### 2. (Opcional) Criar ambiente virtual
@@ -135,13 +133,7 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-### 3. Instalar dependências
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Executar a aplicação
+### 3. Executar a aplicação
 
 ```bash
 cd src
@@ -154,15 +146,34 @@ python main.py
 
 > Preenche esta secção se o projeto usa base de dados.
 
-- **Sistema:** SQLite (ficheiro local) / *outro se aplicável*
-- **Ficheiro:** `src/database.db` *(criado automaticamente na primeira execução)*
-- **Esquema:** ver [`sql/criar_tabelas.sql`](sql/criar_tabelas.sql)
+O projeto utiliza persistência de dados através de um ficheiro JSON.
 
-Para inicializar a base de dados manualmente a partir dos scripts SQL:
+### Sistema
 
-```bash
-sqlite3 database.db < sql/criar_tabelas.sql
-sqlite3 database.db < sql/dados_exemplo.sql
+JSON
+
+### Ficheiro
+
+```text
+src/dados/projetos.json
+```
+
+### Estrutura
+
+Exemplo de registo:
+
+```json
+[
+  {
+    "nome": "Dashboard de Vendas",
+    "categoria": "Vendas",
+    "descricao": "Análise de vendas mensais",
+    "ferramentas": "Python, Power BI",
+    "data_inicio": "01/06/2026",
+    "estado": "Concluído",
+    "data_conclusao": "15/06/2026"
+  }
+]
 ```
 
 ---
@@ -171,19 +182,38 @@ sqlite3 database.db < sql/dados_exemplo.sql
 
 O projeto segue uma arquitetura em três camadas:
 
-```
+```text
 ┌─────────────────────────────┐
 │     UI — Interface          │  Interação com o utilizador
 ├─────────────────────────────┤
 │     BLL — Lógica de Negócio │  Regras e validações
 ├─────────────────────────────┤
-│     DAL — Acesso a Dados    │  Queries e persistência
+│     DAL — Acesso a Dados    │  Leitura e escrita de dados
 ├─────────────────────────────┤
-│     Base de Dados           │  SQLite / outro
+│     Ficheiro JSON           │  Persistência dos dados
 └─────────────────────────────┘
 ```
 
-O diagrama completo está em [`assets/diagrama_arquitetura.png`](assets/diagrama_arquitetura.png).
+### Responsabilidade de cada camada
+
+**UI (User Interface)**
+
+* Interação com o utilizador
+* Menus e apresentação de informação
+
+**BLL (Business Logic Layer)**
+
+* Regras de negócio
+* Validações
+* Processamento de dados
+
+**DAL (Data Access Layer)**
+
+* Leitura e escrita do ficheiro JSON
+* Persistência dos dados
+
+---
+
 
 ---
 
@@ -202,13 +232,20 @@ O diagrama completo está em [`assets/diagrama_arquitetura.png`](assets/diagrama
 ## Estado do Projeto
 
 ```
+## Estado do Projeto
+
+```text
 Sessão 1 — Requisitos        ✅ Concluído
 Sessão 2 — Arquitetura       ✅ Concluído
-Sessão 3 — Desenvolvimento 1 🔄 Em curso
-Sessão 4 — Desenvolvimento 2 ⏳ Pendente
-Sessão 5 — Apresentação      ⏳ Pendente
+Sessão 3 — Desenvolvimento 1 ✅ Concluído
+Sessão 4 — Desenvolvimento 2 ✅ Concluído
+Sessão 5 — Melhorias         🔄 Em curso
+Sessão 6 — Apresentação      ⏳ Pendente
 ```
 
 ---
 
-*UFCD 10790 – Projeto de Programação | [Ano letivo]*
+*UFCD 10790 – Projeto de Programação | 2026*
+
+```
+

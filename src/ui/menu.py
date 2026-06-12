@@ -40,7 +40,7 @@ class Menu:
                  self.remover_projeto()
 
             else:
-                print("Funcionalidade ainda não implementada.")
+                  print("\nErro: opção inválida.")
 
     def adicionar_projeto(self):
         try:
