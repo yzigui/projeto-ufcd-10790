@@ -1,12 +1,12 @@
 [
     {
-        "nome": "Projeto Teste",
-        "categoria": "Vendas",
-        "descricao": "Teste da DAL",
+        "nome": "produção",
+        "categoria": "Outro",
+        "descricao": "quantidade de produção por pessoa",
         "ferramentas": "Python",
         "data_inicio": "08/06/2026",
-        "estado": "Em Desenvolvimento",
-        "data_conclusao": ""
+        "estado": "Concluído",
+        "data_conclusao": "12/06/2026"
     },
     {
         "nome": "Dashboard de Vendas",

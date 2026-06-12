@@ -197,11 +197,7 @@ class Menu:
             print(f"\nProjeto {i}")
             print(f"Nome: {projeto['nome']}")
             print(f"Categoria: {projeto['categoria']}")
-            print(f"Descrição: {projeto['descricao']}")
-            print(f"Ferramentas: {projeto['ferramentas']}")
-            print(f"Data de início: {projeto['data_inicio']}")
             print(f"Estado: {projeto['estado']}")
-            print(f"Data de conclusão: {projeto['data_conclusao']}")
 
         try:
             escolha = int(input("\nDigite o número do projeto que deseja editar: "))
@@ -212,32 +208,102 @@ class Menu:
 
             indice = escolha - 1
 
-            print("\nDigite os novos dados do projeto:")
+            while True:
+                projetos = self.bll.listar_projetos()
+                projeto = projetos[indice]
 
-            nome = input("Nome do projeto: ")
-            categoria = input("Categoria: ")
-            descricao = input("Descrição: ")
-            ferramentas = input("Ferramentas utilizadas: ")
-            data_inicio = input("Data de início: ")
-            concluido = input("O projeto foi concluído? (S/N): ")
+                print("\nProjeto selecionado:")
+                print(f"Nome: {projeto['nome']}")
+                print(f"Categoria: {projeto['categoria']}")
+                print(f"Descrição: {projeto['descricao']}")
+                print(f"Ferramentas: {projeto['ferramentas']}")
+                print(f"Data de início: {projeto['data_inicio']}")
+                print(f"Estado: {projeto['estado']}")
+                print(f"Data de conclusão: {projeto['data_conclusao']}")
 
-            data_conclusao = ""
+                print("\nO que deseja editar?")
+                print("1 - Nome")
+                print("2 - Categoria")
+                print("3 - Descrição")
+                print("4 - Ferramentas")
+                print("5 - Data de início")
+                print("6 - Estado")
+                print("0 - Voltar")
 
-            if concluido.upper() == "S":
-                data_conclusao = input("Data de conclusão: ")
+                campo = input("Escolha uma opção: ")
 
-            self.bll.editar_projeto(
-                indice,
-                nome,
-                categoria,
-                descricao,
-                ferramentas,
-                data_inicio,
-                concluido,
-                data_conclusao
-            )
+                nome = projeto["nome"]
+                categoria = projeto["categoria"]
+                descricao = projeto["descricao"]
+                ferramentas = projeto["ferramentas"]
+                data_inicio = projeto["data_inicio"]
 
-            print("\nProjeto editado com sucesso!")
+                if projeto["estado"] == "Concluído":
+                    concluido = "S"
+                else:
+                    concluido = "N"
+
+                data_conclusao = projeto["data_conclusao"]
+
+                if campo == "0":
+                    print("\nVoltando ao menu principal.")
+                    break
+
+                elif campo == "1":
+                    nome = input("Novo nome: ")
+
+                elif campo == "2":
+                    categorias = self.bll.listar_categorias()
+
+                    print("\nCategorias:")
+                    for i, cat in enumerate(categorias, start=1):
+                        print(f"{i} - {cat}")
+
+                    opcao_categoria = int(input("Escolha a nova categoria: "))
+                    categoria = categorias[opcao_categoria - 1]
+
+                elif campo == "3":
+                    descricao = input("Nova descrição: ")
+
+                elif campo == "4":
+                    ferramentas = input("Novas ferramentas: ")
+
+                elif campo == "5":
+                    data_inicio = input("Nova data de início: ")
+
+                elif campo == "6":
+                    concluido = input("O projeto foi concluído? (S/N): ")
+
+                    if concluido.upper() == "S":
+                        data_conclusao = input("Data de conclusão: ")
+                    else:
+                        data_conclusao = ""
+
+                else:
+                    print("\nErro: opção inválida.")
+                    continue
+
+                self.bll.editar_projeto(
+                    indice,
+                    nome,
+                    categoria,
+                    descricao,
+                    ferramentas,
+                    data_inicio,
+                    concluido,
+                    data_conclusao
+                )
+
+                print("\nProjeto editado com sucesso!")
+
+                continuar = input("Deseja modificar outro campo deste projeto? (S/N): ")
+
+                if continuar.upper() != "S":
+                    print("\nVoltando ao menu principal.")
+                    break
 
         except ValueError as erro:
-            print(f"\nErro: {erro}")        
+            print(f"\nErro: {erro}")
+
+        except IndexError:
+            print("\nErro: opção inválida.")
