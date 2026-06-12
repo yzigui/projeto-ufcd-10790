@@ -229,6 +229,22 @@ def test_remover_projeto_indice_invalido():
     except IndexError:
         print("✅ test_remover_projeto_indice_invalido passou")
 
+def test_obter_estatisticas():
+    bll, dal = criar_bll()
+
+    bll.adicionar_projeto("Projeto 1", "Vendas", "Descrição", "Python", "01/06/2026", "N")
+    bll.adicionar_projeto("Projeto 2", "Marketing", "Descrição", "Python", "01/06/2026", "S", "15/06/2026")
+    bll.adicionar_projeto("Projeto 3", "Vendas", "Descrição", "Python", "01/06/2026", "S", "20/06/2026")
+
+    estatisticas = bll.obter_estatisticas()
+
+    assert estatisticas["total"] == 3
+    assert estatisticas["concluidos"] == 2
+    assert estatisticas["em_desenvolvimento"] == 1
+    assert estatisticas["categorias"]["Vendas"] == 2
+    assert estatisticas["categorias"]["Marketing"] == 1
+
+    print("✅ test_obter_estatisticas passou")
 
 if __name__ == "__main__":
     test_adicionar_projeto_valido()
@@ -247,3 +263,4 @@ if __name__ == "__main__":
     test_editar_projeto_indice_invalido()
     test_remover_projeto()
     test_remover_projeto_indice_invalido()
+    test_obter_estatisticas()

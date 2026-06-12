@@ -7,5 +7,77 @@
         "data_inicio": "11/06/2026",
         "estado": "Em Desenvolvimento",
         "data_conclusao": ""
+    },
+    {
+        "nome": "Dashboard de Vendas de Loja Online",
+        "categoria": "Vendas",
+        "descricao": "Análise das vendas de uma loja online para identificar produtos mais vendidos, meses com maior faturamento e comportamento dos clientes.",
+        "ferramentas": "Python, SQL, Excel, Power BI",
+        "data_inicio": "15/01/2026",
+        "estado": "Concluído",
+        "data_conclusao": "10/02/2026"
+    },
+    {
+        "nome": "Análise de Campanhas de Marketing Digital",
+        "categoria": "Marketing",
+        "descricao": "Avaliação do desempenho de campanhas publicitárias em redes sociais e Google Ads.",
+        "ferramentas": "Python, Excel, Power BI",
+        "data_inicio": "05/02/2026",
+        "estado": "Concluído",
+        "data_conclusao": "20/03/2026"
+    },
+    {
+        "nome": "Controle de Despesas Empresariais",
+        "categoria": "Finanças",
+        "descricao": "Sistema para análise e acompanhamento das despesas mensais de uma pequena empresa.",
+        "ferramentas": "Python, SQL",
+        "data_inicio": "01/03/2026",
+        "estado": "Em Desenvolvimento",
+        "data_conclusao": ""
+    },
+    {
+        "nome": "Indicadores de Desempenho de Funcionários",
+        "categoria": "Recursos Humanos",
+        "descricao": "Estudo dos indicadores de produtividade, assiduidade e desempenho dos colaboradores.",
+        "ferramentas": "Excel, Power BI",
+        "data_inicio": "12/03/2026",
+        "estado": "Concluído",
+        "data_conclusao": "15/04/2026"
+    },
+    {
+        "nome": "Monitorização de Entregas e Logística",
+        "categoria": "Logística",
+        "descricao": "Acompanhamento dos tempos de entrega e identificação de atrasos na distribuição de produtos.",
+        "ferramentas": "Python, SQL, Power BI",
+        "data_inicio": "22/03/2026",
+        "estado": "Em Desenvolvimento",
+        "data_conclusao": ""
+    },
+    {
+        "nome": "Análise de Desempenho Escolar",
+        "categoria": "Educação",
+        "descricao": "Avaliação das notas dos alunos para identificar disciplinas com maior dificuldade.",
+        "ferramentas": "Python, Excel",
+        "data_inicio": "02/04/2026",
+        "estado": "Concluído",
+        "data_conclusao": "28/04/2026"
+    },
+    {
+        "nome": "Gestão de Consultas Médicas",
+        "categoria": "Saúde",
+        "descricao": "Organização e análise de consultas realizadas por uma clínica ao longo do ano.",
+        "ferramentas": "SQL, Power BI",
+        "data_inicio": "10/04/2026",
+        "estado": "Em Desenvolvimento",
+        "data_conclusao": ""
+    },
+    {
+        "nome": "Dashboard de Vendas de Livraria",
+        "categoria": "Vendas",
+        "descricao": "Análise dos livros mais vendidos, faturamento mensal e tendências de compra.",
+        "ferramentas": "SQL, Power BI, Excel",
+        "data_inicio": "01/05/2026",
+        "estado": "Em Desenvolvimento",
+        "data_conclusao": ""
     }
 ]
