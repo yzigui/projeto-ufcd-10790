@@ -75,3 +75,25 @@ class ProjetoBLL:
                 resultados.append(projeto)
 
         return resultados
+    
+    def filtrar_por_categoria(self, categoria):
+        projetos = self.dal.carregar_projetos()
+
+        resultados = []
+
+        for projeto in projetos:
+            if projeto["categoria"] == categoria:
+                resultados.append(projeto)
+
+        return resultados
+
+    def filtrar_por_estado(self, estado):
+        projetos = self.dal.carregar_projetos()
+
+        resultados = []
+
+        for projeto in projetos:
+            if projeto["estado"] == estado:
+                resultados.append(projeto)
+
+        return resultados
