@@ -145,3 +145,15 @@ class ProjetoBLL:
         self.dal.guardar_projetos(projetos)
 
         return projetos[indice]
+    
+    def remover_projeto(self, indice):
+        projetos = self.dal.carregar_projetos()
+
+        if indice < 0 or indice >= len(projetos):
+            raise IndexError("Projeto inválido.")
+
+        projeto_removido = projetos.pop(indice)
+
+        self.dal.guardar_projetos(projetos)
+
+        return projeto_removido

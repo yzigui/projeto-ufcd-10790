@@ -35,6 +35,9 @@ class Menu:
                  
             elif opcao == "5":
                  self.editar_projeto()
+                 
+            elif opcao == "6":
+                 self.remover_projeto()
 
             else:
                 print("Funcionalidade ainda não implementada.")
@@ -307,3 +310,47 @@ class Menu:
 
         except IndexError:
             print("\nErro: opção inválida.")
+            
+    def remover_projeto(self):
+        projetos = self.bll.listar_projetos()
+
+        if not projetos:
+            print("\nNenhum projeto registado.")
+            return
+
+        print("\n===== REMOVER PROJETO =====")
+
+        for i, projeto in enumerate(projetos, start=1):
+            print(f"\nProjeto {i}")
+            print(f"Nome: {projeto['nome']}")
+            print(f"Categoria: {projeto['categoria']}")
+            print(f"Estado: {projeto['estado']}")
+
+        try:
+            escolha = int(input("\nDigite o número do projeto que deseja remover: "))
+
+            if escolha < 1 or escolha > len(projetos):
+                print("\nErro: projeto inválido.")
+                return
+
+            indice = escolha - 1
+
+            confirmacao = input(
+                "\nTem a certeza que deseja remover este projeto? (S/N): "
+            )
+
+            if confirmacao.upper() != "S":
+                print("\nRemoção cancelada.")
+                return
+
+            projeto = self.bll.remover_projeto(indice)
+
+            print(
+                f"\nProjeto '{projeto['nome']}' removido com sucesso!"
+            )
+
+        except ValueError:
+            print("\nErro: introduza um número válido.")
+
+        except IndexError:
+            print("\nErro: projeto inválido.")

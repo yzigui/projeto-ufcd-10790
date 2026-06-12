@@ -1,14 +1,5 @@
 [
     {
-        "nome": "produção",
-        "categoria": "Outro",
-        "descricao": "quantidade de produção por pessoa",
-        "ferramentas": "Python",
-        "data_inicio": "08/06/2026",
-        "estado": "Concluído",
-        "data_conclusao": "12/06/2026"
-    },
-    {
         "nome": "Dashboard de Vendas",
         "categoria": "Vendas",
         "descricao": "Análise de vendas de uma empresa fictícia",
