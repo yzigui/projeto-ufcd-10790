@@ -13,6 +13,7 @@ class Menu:
             print("4 - Filtrar Projetos")
             print("5 - Editar Projeto")
             print("6 - Remover Projeto")
+            print("7 - Estatísticas do Portfólio")
             print("0 - Sair")
 
             opcao = input("\nEscolha uma opção: ")
@@ -38,6 +39,9 @@ class Menu:
                  
             elif opcao == "6":
                  self.remover_projeto()
+                 
+            elif opcao == "7":
+                 self.mostrar_estatisticas()
 
             else:
                   print("\nErro: opção inválida.")
@@ -354,3 +358,16 @@ class Menu:
 
         except IndexError:
             print("\nErro: projeto inválido.")
+            
+    def mostrar_estatisticas(self):
+        estatisticas = self.bll.obter_estatisticas()
+
+        print("\n===== ESTATÍSTICAS DO PORTFÓLIO =====")
+        print(f"Total de projetos: {estatisticas['total']}")
+        print(f"Projetos concluídos: {estatisticas['concluidos']}")
+        print(f"Projetos em desenvolvimento: {estatisticas['em_desenvolvimento']}")
+
+        print("\nProjetos por categoria:")
+
+        for categoria, quantidade in estatisticas["categorias"].items():
+            print(f"{categoria}: {quantidade}")

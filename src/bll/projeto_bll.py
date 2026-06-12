@@ -157,3 +157,32 @@ class ProjetoBLL:
         self.dal.guardar_projetos(projetos)
 
         return projeto_removido
+    
+    def obter_estatisticas(self):
+        projetos = self.dal.carregar_projetos()
+
+        total = len(projetos)
+
+        concluidos = 0
+        em_desenvolvimento = 0
+
+        categorias = {}
+
+        for categoria in self.CATEGORIAS:
+            categorias[categoria] = 0
+
+        for projeto in projetos:
+
+            if projeto["estado"] == "Concluído":
+                concluidos += 1
+            else:
+                em_desenvolvimento += 1
+
+            categorias[projeto["categoria"]] += 1
+
+        return {
+            "total": total,
+            "concluidos": concluidos,
+            "em_desenvolvimento": em_desenvolvimento,
+            "categorias": categorias
+        }

@@ -63,38 +63,38 @@ Lista as principais funcionalidades implementadas:
 
 ## Estrutura do Repositório
 
-```
-projeto_ufcd10790/
+```text
+projeto-ufcd-10790/
 │
-├── README.md               ← Este ficheiro — apresentação do projeto
-├── .gitignore              ← Ficheiros a ignorar pelo Git
+├── README.md
+├── .gitignore
 │
-├── src/                    ← Código fonte Python
-│   ├── main.py             ← Ponto de entrada da aplicação
-│   ├── dal/                ← Data Access Layer
-│   │   └── ...
-│   ├── bll/                ← Business Logic Layer
-│   │   └── ...
-│   └── ui/                 ← Interface com o utilizador
-│       └── ...
+├── src/
+│   ├── main.py
+│   │
+│   ├── bll/
+│   │   └── projeto_bll.py
+│   │
+│   ├── dal/
+│   │   └── projeto_dal.py
+│   │
+│   ├── dados/
+│   │   └── projetos.json
+│   │
+│   └── ui/
+│       └── menu.py
 │
-├── sql/                    ← Scripts SQL (opcional)
-│   ├── criar_tabelas.sql   ← DDL — criação do esquema
-│   └── dados_exemplo.sql   ← Dados iniciais de teste
+├── tests/
+│   └── test_projeto_bll.py
 │
-├── docs/                   ← Toda a documentação do projeto
-│   ├── relatorio.docx      ← Relatório final do projeto
-│   ├── requisitos.xlsx     ← Levantamento de requisitos (RF e RNF)
-│   ├── manual_utilizador.docx  ← Manual de utilização da aplicação
-│   └── manual_tecnico.docx     ← Manual de instalação e configuração
+├── docs/
+│   └── documentação do projeto
 │
-├── assets/                 ← Recursos visuais e apresentação
-│   ├── apresentacao.pptx   ← Apresentação final
-│   ├── diagrama_arquitetura.png  ← Diagrama de arquitetura do sistema
-│   └── diagrama_bd.png          ← Diagrama da base de dados (se aplicável)
+├── assets/
+│   └── recursos visuais
 │
-└── tests/                  ← Testes (opcional mas recomendado)
-    └── test_bll.py         ← Testes à camada de negócio
+└── sql/
+    └── scripts SQL (se necessário)
 ```
 
 ---
