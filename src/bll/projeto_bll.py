@@ -97,3 +97,51 @@ class ProjetoBLL:
                 resultados.append(projeto)
 
         return resultados
+    
+    def editar_projeto(self, indice, nome, categoria, descricao, ferramentas, data_inicio, concluido, data_conclusao=""):
+        projetos = self.dal.carregar_projetos()
+
+        if indice < 0 or indice >= len(projetos):
+            raise IndexError("Projeto inválido.")
+
+        if not nome.strip():
+            raise ValueError("O nome do projeto é obrigatório.")
+
+        if categoria not in self.CATEGORIAS:
+            raise ValueError("Categoria inválida.")
+
+        if not descricao.strip():
+            raise ValueError("A descrição é obrigatória.")
+
+        if not ferramentas.strip():
+            raise ValueError("As ferramentas utilizadas são obrigatórias.")
+
+        if not data_inicio.strip():
+            raise ValueError("A data de início é obrigatória.")
+
+        if concluido.upper() == "S":
+            estado = "Concluído"
+
+            if not data_conclusao.strip():
+                raise ValueError("A data de conclusão é obrigatória para projetos concluídos.")
+
+        elif concluido.upper() == "N":
+            estado = "Em Desenvolvimento"
+            data_conclusao = ""
+
+        else:
+            raise ValueError("Resposta inválida. Use S ou N.")
+
+        projetos[indice] = {
+            "nome": nome,
+            "categoria": categoria,
+            "descricao": descricao,
+            "ferramentas": ferramentas,
+            "data_inicio": data_inicio,
+            "estado": estado,
+            "data_conclusao": data_conclusao
+        }
+
+        self.dal.guardar_projetos(projetos)
+
+        return projetos[indice]

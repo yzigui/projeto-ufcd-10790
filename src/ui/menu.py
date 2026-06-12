@@ -32,6 +32,9 @@ class Menu:
                  
             elif opcao == "4":
                  self.filtrar_projetos()
+                 
+            elif opcao == "5":
+                 self.editar_projeto()
 
             else:
                 print("Funcionalidade ainda não implementada.")
@@ -180,3 +183,61 @@ class Menu:
             print(f"Data de início: {projeto['data_inicio']}")
             print(f"Estado: {projeto['estado']}")
             print(f"Data de conclusão: {projeto['data_conclusao']}")
+            
+    def editar_projeto(self):
+        projetos = self.bll.listar_projetos()
+
+        if not projetos:
+            print("\nNenhum projeto registado.")
+            return
+
+        print("\n===== EDITAR PROJETO =====")
+
+        for i, projeto in enumerate(projetos, start=1):
+            print(f"\nProjeto {i}")
+            print(f"Nome: {projeto['nome']}")
+            print(f"Categoria: {projeto['categoria']}")
+            print(f"Descrição: {projeto['descricao']}")
+            print(f"Ferramentas: {projeto['ferramentas']}")
+            print(f"Data de início: {projeto['data_inicio']}")
+            print(f"Estado: {projeto['estado']}")
+            print(f"Data de conclusão: {projeto['data_conclusao']}")
+
+        try:
+            escolha = int(input("\nDigite o número do projeto que deseja editar: "))
+
+            if escolha < 1 or escolha > len(projetos):
+                print("\nErro: projeto inválido.")
+                return
+
+            indice = escolha - 1
+
+            print("\nDigite os novos dados do projeto:")
+
+            nome = input("Nome do projeto: ")
+            categoria = input("Categoria: ")
+            descricao = input("Descrição: ")
+            ferramentas = input("Ferramentas utilizadas: ")
+            data_inicio = input("Data de início: ")
+            concluido = input("O projeto foi concluído? (S/N): ")
+
+            data_conclusao = ""
+
+            if concluido.upper() == "S":
+                data_conclusao = input("Data de conclusão: ")
+
+            self.bll.editar_projeto(
+                indice,
+                nome,
+                categoria,
+                descricao,
+                ferramentas,
+                data_inicio,
+                concluido,
+                data_conclusao
+            )
+
+            print("\nProjeto editado com sucesso!")
+
+        except ValueError as erro:
+            print(f"\nErro: {erro}")        
