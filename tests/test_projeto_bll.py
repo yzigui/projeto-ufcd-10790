@@ -229,6 +229,7 @@ def test_remover_projeto_indice_invalido():
     except IndexError:
         print("✅ test_remover_projeto_indice_invalido passou")
 
+
 def test_obter_estatisticas():
     bll, dal = criar_bll()
 
@@ -246,21 +247,30 @@ def test_obter_estatisticas():
 
     print("✅ test_obter_estatisticas passou")
 
+
 if __name__ == "__main__":
-    test_adicionar_projeto_valido()
-    test_adicionar_projeto_em_desenvolvimento()
-    test_nome_vazio()
-    test_categoria_invalida()
-    test_descricao_vazia()
-    test_ferramentas_vazias()
-    test_data_inicio_vazia()
-    test_concluido_invalido()
-    test_data_conclusao_obrigatoria()
-    test_pesquisar_projeto()
-    test_filtrar_por_categoria()
-    test_filtrar_por_estado()
-    test_editar_projeto()
-    test_editar_projeto_indice_invalido()
-    test_remover_projeto()
-    test_remover_projeto_indice_invalido()
-    test_obter_estatisticas()
+    testes = [
+        test_adicionar_projeto_valido,
+        test_adicionar_projeto_em_desenvolvimento,
+        test_nome_vazio,
+        test_categoria_invalida,
+        test_descricao_vazia,
+        test_ferramentas_vazias,
+        test_data_inicio_vazia,
+        test_concluido_invalido,
+        test_data_conclusao_obrigatoria,
+        test_pesquisar_projeto,
+        test_filtrar_por_categoria,
+        test_filtrar_por_estado,
+        test_editar_projeto,
+        test_editar_projeto_indice_invalido,
+        test_remover_projeto,
+        test_remover_projeto_indice_invalido,
+        test_obter_estatisticas
+    ]
+
+    for teste in testes:
+        teste()
+
+    print(f"\nTotal de testes executados: {len(testes)}")
+    print("Todos os testes foram concluídos com sucesso.")
